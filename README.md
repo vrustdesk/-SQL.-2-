@@ -50,10 +50,8 @@ WHERE `length` > (SELECT AVG(`length`) from film) ;
 ### Задание 3
 
 ```SQL
-SELECT MONTH(payment_date) AS Month, COUNT(payment_id) As Payments, SUM(amount) AS Amount
-FROM payment
-GROUP BY MONTH(payment_date) 
-ORDER BY COUNT(payment_id)  DESC LIMIT 1 ;
+SELECT DATE_FORMAT(payment_date, '%Y-%m') AS payment_month, COUNT(rental_id) AS rental_count, SUM(amount) AS total_amount FROM payment GROUP BY payment_month ORDER BY total_amount DESC LIMIT 1;
 ```
 
-<img width="876" height="201" alt="image" src="https://github.com/user-attachments/assets/3811ad6d-00cc-414e-98b9-3badeaf1ff5f" />
+<img width="867" height="167" alt="image" src="https://github.com/user-attachments/assets/88cee746-56a9-4378-979e-33f8be759181" />
+
